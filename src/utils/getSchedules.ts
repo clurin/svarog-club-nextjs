@@ -17,9 +17,9 @@ export async function getSchedules(location: string, discipline: string): Promis
   )
 }
 
-export async function getKarateSchedule(location: string): Promise<KarateScheduleItem[]> {
+export async function getKarateSchedule(location: string, discipline: string): Promise<KarateScheduleItem[]> {
   return await client.fetch(
-    `*[_type == "karateSchedule" && location == $location] | order(position asc) {
+    `*[_type == "karateSchedule" && location == $location && discipline == $discipline] | order(position asc) {
       _id,
       ageGroup,
       schedule[] {
@@ -30,6 +30,6 @@ export async function getKarateSchedule(location: string): Promise<KarateSchedul
       location,
       position
     }`,
-    { location }
+    { location, discipline }
   );
 }

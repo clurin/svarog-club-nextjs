@@ -18,6 +18,7 @@ const ScheduleSection = ({ title, items }: { title: string, items: ScheduleItem[
         </div>
     </div>
 )
+
 const KarateScheduleSection = ({ title, items }: { title: string, items: KarateScheduleItem[] }) => (
     <div>
         <p className="w-[55%] mx-auto -mt-px flex justify-center items-center h-8 bg-main-orange [box-shadow:0_-4px_6px_-4px_rgba(0,0,0,0.3)]">
@@ -68,13 +69,31 @@ const Schedule = async () => {
         getSchedules('kupchino', 'hand-to-hand'),
         getSchedules('kupchino', 'mma'),
         getSchedules('kupchino', 'kickboxing'),
-        getKarateSchedule('kupchino'),
+        getKarateSchedule('kupchino', 'karate'),
     ])
 
+    const [
+        karate_shushari_raw,
+        taekwondo_shushari
+    ] = await Promise.all([
+        getKarateSchedule('shushari', 'karate'),
+        getKarateSchedule('shushari', 'taekwondo')
+    ])
+
+    const karate_shushari = karate_shushari_raw.flatMap(item =>
+        item.schedule.map(s => ({
+            _id: item._id,
+            ageGroup: item.ageGroup,
+            days: s.days,
+            time: s.time,
+            price: item.price,
+        }))
+    ) as ScheduleItem[]
+
     return (
-        <div className='w-full mt-19'>
-            <p className='text-3xl text-center'>Расписание<br />занятий</p>
-            <div className='bg-[#C3C4D1]'>
+        <div className='w-full mt-19 bg-black'>
+            <p className='text-3xl text-center pt-5'>Расписание<br />занятий</p>
+            <div className='bg-[#C3C4D1] pb-3'>
                 <p className='w-full h-10 mt-10 text-2xl flex justify-center items-center bg-kupchino'>
                     Купчино
                 </p>
@@ -85,6 +104,16 @@ const Schedule = async () => {
                 <ScheduleSection title="ММА" items={mma_kupchino as ScheduleItem[]} />
                 <ScheduleSection title="Кикбоксинг" items={kickboxing_kupchino as ScheduleItem[]} />
                 <KarateScheduleSection title='Каратэ' items={karate_kupchino} />
+            </div>
+            <div className='bg-[#C3C4D1] pb-3'>
+                <p className='w-full h-10 text-2xl flex justify-center items-center bg-shushari'>
+                    Шушары
+                </p>
+                <p className='w-full h-10 text-2xl flex justify-center items-center bg-main-red'>
+                    ул. Окуловская 18
+                </p>
+                <ScheduleSection title='Каратэ' items={karate_shushari} />
+                <KarateScheduleSection title='Тхэквондо' items={taekwondo_shushari} />
             </div>
         </div>
     )
