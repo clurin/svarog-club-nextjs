@@ -23,13 +23,13 @@ const News = async () => {
                         <p className="text-sm px-2 mt-1 line-clamp-2 text-neutral-900">
                             {item.content}
                         </p>
-                        <div className="flex justify-end px-2 mt-auto pb-2">
+                        <div className="flex justify-end px-2 mt-auto pb-2 pt-6">
                             <p className="absolute left-2 bottom-2 text-xs text-neutral-500">
                                 {new Date(item.publishedAt).toLocaleDateString('ru-RU')}
                             </p>
-                            <button className="bg-neutral-900 p-2 rounded-xs text-neutral-100 text-xs mt-5 hover:bg-neutral-100 hover:text-black transition-colors">
+                            {/* <button className="bg-neutral-900 p-2 rounded-xs text-neutral-100 text-xs mt-5 hover:bg-neutral-100 hover:text-black transition-colors">
                                 Подробнее
-                            </button>
+                            </button> */}
                         </div>
                     </div>
                 ))}
