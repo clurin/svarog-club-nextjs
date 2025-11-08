@@ -19,3 +19,11 @@ export interface KarateScheduleItem {
     price: number
     location: 'kupchino' | 'shushari'
 }
+
+export interface Coach {
+  _id: string;
+  name: string;
+  imageUrl: string;
+  achievements: string[];
+  disciplines: string[];
+}

@@ -107,7 +107,7 @@ const Schedule = async () => {
                 <ScheduleSection title="ММА" items={mma_kupchino as ScheduleItem[]} />
                 <ScheduleSection title="Кикбоксинг" items={kickboxing_kupchino as ScheduleItem[]} />
                 <KarateScheduleSection title='Каратэ' items={karate_kupchino} />
-                <p className='w-full h-10 md:h-12 md:text-3xl text-2xl flex justify-center items-center bg-main-red'>
+                <p className='w-full h-10 md:h-12 md:text-3xl text-xl flex justify-center items-center bg-main-red'>
                     ул. Димитрова 9к3, школа 364
                 </p>
                 <ScheduleSection title="Рукопашный бой" items={school_kupchino as ScheduleItem[]} />
@@ -121,7 +121,7 @@ const Schedule = async () => {
                 </p>
                 <ScheduleSection title='Каратэ' items={karate_shushari} />
                 <KarateScheduleSection title='Тхэквондо' items={taekwondo_shushari} />
-                <p className='w-full h-10 text-2xl  md:h-12 md:text-3xl flex justify-center items-center bg-main-red'>
+                <p className='w-full h-10 text-xl  md:h-12 md:text-3xl flex justify-center items-center bg-main-red'>
                     ул. Первомайская 30, школа 93
                 </p>
                 <ScheduleSection title='Рукопашный бой' items={school_shushari as ScheduleItem[]} />

@@ -1,0 +1,53 @@
+'use client'
+
+import Image from 'next/image'
+import { useEffect } from 'react'
+import { Coach } from '@/models/Models'
+
+export default function ModalCoach({ coach, onClose }: { coach: Coach | null; onClose: () => void }) {
+    useEffect(() => {
+        if (coach) {
+            document.body.style.overflow = 'hidden'
+        } else {
+            document.body.style.overflow = ''
+        }
+        return () => {
+            document.body.style.overflow = ''
+        }
+    }, [coach])
+
+    if (!coach) return null
+
+    return (
+        <div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-opacity-50 backdrop-blur-xs"
+            onClick={onClose}
+        >
+            <div className="bg-white opacity-80 p-2 max-w-md w-[80%] relative"
+                onClick={(e) => e.stopPropagation()}>
+                <button
+                    className="absolute top-2 right-3 text-main-red text-xl"
+                    onClick={onClose}>
+                    закрыть
+                </button>
+
+                <Image
+                    src={coach.imageUrl}
+                    alt={coach.name}
+                    width={400}
+                    height={250}
+                    className="object-cover"
+                />
+                <h2 className="text-xl text-black mb-2">{coach.name}</h2>
+                <p className="text-sm text-gray-700 mb-2">
+                    Дисциплины: <span className='text-xs'>{coach.disciplines.join(', ')}</span>
+                </p>
+                <ul className="text-sm text-black">
+                    {coach.achievements.map((item, index) => (
+                        <li key={index}>{item}</li>
+                    ))}
+                </ul>
+            </div>
+        </div>
+    )
+}
