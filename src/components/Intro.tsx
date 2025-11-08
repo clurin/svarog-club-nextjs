@@ -39,9 +39,12 @@ const Intro = () => {
                     В Санкт Петербурге
                 </p>
             </div>
-            <div className='bg-main-red text-2xl md:text-3xl text-center'>
-                Записаться на тренировку
-            </div>
+            <a href="https://wa.me/79650934512?text=Здравствуйте!%20Хочу%20записаться%20на%20тренировку"
+                target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                <div className='hover:text-main-red transition-colors hover:bg-main-yellow bg-main-red text-2xl md:text-3xl text-center'>
+                    Записаться на тренировку
+                </div>
+            </a>
         </div>
     )
 }

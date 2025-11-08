@@ -1,5 +1,6 @@
 import { KarateScheduleItem, ScheduleItem } from '@/models/Models';
 import { getKarateSchedule, getSchedules } from '@/utils/getSchedules'
+import { getSchool } from '@/utils/getSchool';
 
 const ScheduleSection = ({ title, items }: { title: string, items: ScheduleItem[] }) => (
     <div>
@@ -60,6 +61,8 @@ const KarateScheduleSection = ({ title, items }: { title: string, items: KarateS
 )
 
 const Schedule = async () => {
+    const [school_shushari, school_kupchino] = await Promise.all([getSchool('shushari'), getSchool('kupchino')])
+
     const [
         hand_to_hand_kupchino,
         mma_kupchino,
@@ -104,6 +107,10 @@ const Schedule = async () => {
                 <ScheduleSection title="ММА" items={mma_kupchino as ScheduleItem[]} />
                 <ScheduleSection title="Кикбоксинг" items={kickboxing_kupchino as ScheduleItem[]} />
                 <KarateScheduleSection title='Каратэ' items={karate_kupchino} />
+                <p className='w-full h-10 md:h-12 md:text-3xl text-2xl flex justify-center items-center bg-main-red'>
+                    ул. Димитрова 9к3, школа 364
+                </p>
+                <ScheduleSection title="Рукопашный бой" items={school_kupchino as ScheduleItem[]} />
             </div>
             <div className='bg-[#C3C4D1] pb-3'>
                 <p className='w-full h-10 text-2xl  md:h-14 md:text-4xl flex justify-center items-center bg-shushari'>
@@ -114,6 +121,10 @@ const Schedule = async () => {
                 </p>
                 <ScheduleSection title='Каратэ' items={karate_shushari} />
                 <KarateScheduleSection title='Тхэквондо' items={taekwondo_shushari} />
+                <p className='w-full h-10 text-2xl  md:h-12 md:text-3xl flex justify-center items-center bg-main-red'>
+                    ул. Первомайская 30, школа 93
+                </p>
+                <ScheduleSection title='Рукопашный бой' items={school_shushari as ScheduleItem[]} />
             </div>
         </div>
     )
