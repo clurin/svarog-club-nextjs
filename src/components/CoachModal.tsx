@@ -26,7 +26,7 @@ export default function ModalCoach({ coach, onClose }: { coach: Coach | null; on
             <div className="bg-white opacity-90 p-2 max-w-md w-[80%] relative"
                 onClick={(e) => e.stopPropagation()}>
                 <button
-                    className="absolute top-2 right-3 bg-neutral-800 p-1 text-main-red text-xl"
+                    className="absolute cursor-pointer top-2 right-3 bg-neutral-800 p-1 text-main-red text-xl"
                     onClick={onClose}>
                     закрыть
                 </button>
@@ -42,11 +42,11 @@ export default function ModalCoach({ coach, onClose }: { coach: Coach | null; on
                 <p className="text-sm text-neutral-700 mb-1">
                     Дисциплины: <span className='text-xs'>{coach.disciplines.join(', ')}</span>
                 </p>
-                <ol className="text-sm text-black">
+                <ul className="text-xs text-black list-disc pl-5">
                     {coach.achievements.map((item, index) => (
                         <li key={index}>{item}</li>
                     ))}
-                </ol>
+                </ul>
             </div>
         </div>
     )

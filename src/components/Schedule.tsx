@@ -45,7 +45,7 @@ const KarateScheduleSection = ({ title, items }: { title: string, items: KarateS
                                     </td>
                                 )}
                                 <td className="border-2 border-black p-2">{s.days.join(', ')}</td>
-                                <td className="border-2 border-black p-2">{s.time}</td>
+                                <td className="border-2 border-black p-2 text-nowrap">{s.time}</td>
                                 {idx === 0 && (
                                     <td rowSpan={item.schedule.length} className="border-2 border-black p-2 align-middle">
                                         {item.price} <span className="text-sm">Руб</span>
