@@ -1,5 +1,4 @@
 import { getNews } from '@/utils/getNews'
-import Image from 'next/image'
 import Link from 'next/link'
 
 const News = async () => {
@@ -12,10 +11,9 @@ const News = async () => {
                 {news.map(item => (
                     <div key={item._id} className="relative w-[300px] bg-white overflow-hidden flex flex-col">
                         <div className="w-full h-[200px] relative">
-                            <Image
+                            <img
                                 src={item.imageUrl}
                                 alt={item.title}
-                                fill
                                 className="object-cover"
                             />
                         </div>

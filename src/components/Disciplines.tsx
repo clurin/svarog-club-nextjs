@@ -1,6 +1,5 @@
 import { getDisciplines } from '@/utils/getDisciplines'
 import { SanityDocument } from 'next-sanity'
-import Image from 'next/image'
 import React from 'react'
 
 const Disciplines = async () => {
@@ -12,7 +11,7 @@ const Disciplines = async () => {
                 {(await disciplines).map((discipline) => (
                     <div key={discipline._id} className='relative border-2 border-solid border-white'>
                         <p className='absolute inset-0 text-2xl flex justify-center items-center'>{discipline.title}</p>
-                        <Image
+                        <img
                             width={370}
                             height={200}
                             src={discipline.imageUrl}

@@ -1,7 +1,4 @@
 import { getNews } from '@/utils/getNews'
-import Image from 'next/image'
-import React from 'react'
-
 const page = async () => {
     const news = await getNews()
     return (
@@ -14,10 +11,9 @@ const page = async () => {
                         className="inline-block w-full mb-6 bg-white overflow-hidden"
                         style={{ breakInside: 'avoid' }}>
                         <div className="w-full relative" style={{ height: 200 }}>
-                            <Image
+                            <img
                                 src={item.imageUrl}
                                 alt={item.title}
-                                fill
                                 className="object-cover"
                             />
                         </div>

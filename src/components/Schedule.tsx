@@ -12,7 +12,7 @@ const ScheduleSection = ({ title, items }: { title: string, items: ScheduleItem[
                 <div key={item._id} className="-mt-0.5 grid grid-cols-4 border-2 text-center border-solid border-black bg-white text-black text-base">
                     <div className="border-r-2 border-solid border-black p-2 text-center">{item.ageGroup} лет</div>
                     <div className="border-r-2 border-solid border-black p-2 text-center">{item.days.join(', ')}</div>
-                    <div className="border-r-2 border-solid border-black p-2 text-center">{item.time}</div>
+                    <div className="border-r-2 border-solid border-black p-2 text-center text-nowrap">{item.time}</div>
                     <div className="border-solid border-black p-2 text-center">{item.price} <span className='text-sm'>Руб</span></div>
                 </div>
             ))}
@@ -107,7 +107,7 @@ const Schedule = async () => {
                 <ScheduleSection title="ММА" items={mma_kupchino as ScheduleItem[]} />
                 <ScheduleSection title="Кикбоксинг" items={kickboxing_kupchino as ScheduleItem[]} />
                 <KarateScheduleSection title='Каратэ' items={karate_kupchino} />
-                <p className='w-full h-10 md:h-12 md:text-3xl text-xl flex justify-center items-center bg-main-red'>
+                <p className='w-full h-10 md:h-12 md:text-3xl text-xl flex justify-center items-center bg-main-red tracking-tight'>
                     ул. Димитрова 9к3, школа 364
                 </p>
                 <ScheduleSection title="Рукопашный бой" items={school_kupchino as ScheduleItem[]} />
@@ -121,10 +121,10 @@ const Schedule = async () => {
                 </p>
                 <ScheduleSection title='Каратэ' items={karate_shushari} />
                 <KarateScheduleSection title='Тхэквондо' items={taekwondo_shushari} />
-                <p className='w-full h-10 text-xl  md:h-12 md:text-3xl flex justify-center items-center bg-main-red'>
+                <p className='w-full h-10 text-xl md:h-12 md:text-3xl flex justify-center items-center bg-main-red tracking-tight'>
                     ул. Первомайская 30, школа 93
                 </p>
-                <ScheduleSection title='Рукопашный бой' items={school_shushari as ScheduleItem[]} />
+                <ScheduleSection title='Каратэ' items={school_shushari as ScheduleItem[]} />
             </div>
         </div>
     )

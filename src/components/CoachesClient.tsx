@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import Image from 'next/image'
 import ModalCoach from './CoachModal'
 import { Coach } from '@/models/Models'
 
@@ -9,7 +8,7 @@ export default function CoachesClient({ coaches }: { coaches: Coach[] }) {
     const [selectedCoach, setSelectedCoach] = useState<Coach | null>(null)
 
     return (
-        <div className="mt-19">
+        <div className="pt-19 pb-15 bg-black">
             <p className="text-3xl text-center">Тренерский <br /> состав</p>
 
             <div className="flex flex-wrap justify-center mt-9 gap-6 mx-6">
@@ -19,7 +18,7 @@ export default function CoachesClient({ coaches }: { coaches: Coach[] }) {
                         className="relative w-[300px] h-[220px] overflow-hidden cursor-pointer"
                         onClick={() => setSelectedCoach(coach)}
                     >
-                        <Image
+                        <img
                             width={300}
                             height={220}
                             src={coach.imageUrl}

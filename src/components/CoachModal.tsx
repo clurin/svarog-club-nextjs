@@ -1,6 +1,4 @@
 'use client'
-
-import Image from 'next/image'
 import { useEffect } from 'react'
 import { Coach } from '@/models/Models'
 
@@ -31,7 +29,7 @@ export default function ModalCoach({ coach, onClose }: { coach: Coach | null; on
                     закрыть
                 </button>
 
-                <Image
+                <img
                     src={coach.imageUrl}
                     alt={coach.name}
                     width={400}
